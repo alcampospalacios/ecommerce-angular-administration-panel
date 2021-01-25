@@ -1,0 +1,15 @@
+// Section image in paralax
+
+
+  .full-banner {
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 190px;
+    padding-bottom: 190px;
+    background-position: 50%;
+  }
+  
+  .full-banner.parallax {
+    background-attachment: fixed;
+  }

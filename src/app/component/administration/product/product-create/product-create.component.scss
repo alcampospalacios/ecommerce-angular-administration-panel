@@ -1,0 +1,20 @@
+[nz-form] {
+    max-width: 950px;
+  }
+
+  .phone-select {
+    width: 70px;
+  }
+
+  .submit {
+    margin-bottom: 8px;
+  }
+
+  ::ng-deep input[type=”file”] {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    }

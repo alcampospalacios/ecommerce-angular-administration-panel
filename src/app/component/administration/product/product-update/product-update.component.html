@@ -1,0 +1,217 @@
+<div *ngIf="product">
+    <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+
+        <div nz-row [nzGutter]="24">
+            <div nz-col [nzSpan]="10">
+                <nz-form-item>
+                    <nz-form-label [nzSpan]="5" nzRequired nzFor="name">Nombre</nz-form-label>
+                    <nz-form-control  [nzSpan]="14" nzOffset="2" [nzErrorTip]="userErrorTpl" nzHasFeedback>
+                        <input nz-input formControlName="name" id="name" />
+                        <ng-template #userErrorTpl let-control>
+                            <ng-container *ngIf="control.hasError('required')">
+                                Este campo es requerido!
+                            </ng-container>
+                          </ng-template>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+    
+            <div nz-col [nzSpan]="10" nzOffset="2">
+                <nz-form-item>
+                    <nz-form-label [nzSpan]="6" nzFor="type" nzRequired>Destinado a</nz-form-label>
+                    <nz-form-control [nzSpan]="18" nzOffset="2" [nzErrorTip]="userErrorTpl" nzHasFeedback>
+                        <nz-select type="type" id="type" formControlName="type">
+                            <nz-option [nzLabel]="'Mujer'" [nzValue]="'woman'"></nz-option>
+                            <nz-option [nzLabel]="'Hombre'" [nzValue]="'man'"></nz-option>
+                            <nz-option [nzLabel]="'Niña'" [nzValue]="'girl'"></nz-option>
+                            <nz-option [nzLabel]="'Niño'" [nzValue]="'boy'"></nz-option>
+                        </nz-select>
+                        <ng-template #userErrorTpl let-control>
+                            <ng-container *ngIf="control.hasError('required')">
+                                Este campo es requerido!
+                            </ng-container>
+                          </ng-template>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+    
+        <div nz-row [nzGutter]="24">
+            <div nz-col [nzSpan]="10">
+                <nz-form-item>
+                    <nz-form-label [nzSpan]="5" nzFor="category" nzRequired>Categoría</nz-form-label>
+                    <nz-form-control [nzSpan]="14" nzOffset="2" [nzErrorTip]="userErrorTpl" nzHasFeedback>
+                        <nz-select type="category" id="category" formControlName="category">
+                            <nz-option [nzLabel]="'Ropa'" [nzValue]="'clothes'"></nz-option>
+                            <nz-option [nzLabel]="'Zapatos'" [nzValue]="'shoes'"></nz-option>
+                            <nz-option [nzLabel]="'Mochilas'" [nzValue]="'bag'"></nz-option>
+                            <nz-option [nzLabel]="'Relojes'" [nzValue]="'watch'"></nz-option>
+                            <nz-option [nzLabel]="'Accesorios'" [nzValue]="'accesories'"></nz-option>
+                            <nz-option [nzLabel]="'Joyería'" [nzValue]="'jewelry'"></nz-option>
+                        </nz-select>
+                        <ng-template #userErrorTpl let-control>
+                            <ng-container *ngIf="control.hasError('required')">
+                                Este campo es requerido!
+                            </ng-container>
+                          </ng-template>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+    
+            <div nz-col [nzSpan]="5" nzOffset="2">
+                <nz-form-item>
+                    <nz-form-label [nzSpan]="8" nzFor="price" nzRequired>Precio</nz-form-label>
+                    <nz-form-control [nzSpan]="6" nzOffset="9" [nzErrorTip]="userErrorTpl" nzHasFeedback>
+                        <nz-input-number [nzMin]="1" [nzMax]="100" [nzStep]="1"
+                            [nzFormatter]="formatterDollar" [nzParser]="parserDollar" id="price" formControlName="price">
+                        </nz-input-number>
+                        <ng-template #userErrorTpl let-control>
+                            <ng-container *ngIf="control.hasError('required')">
+                                Este campo es requerido!
+                            </ng-container>
+                          </ng-template>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+    
+            <div nz-col [nzSpan]="5">
+                <nz-form-item>
+                    <nz-form-label [nzSpan]="10" nzOffset="4" nzFor="amount" nzRequired>Cantidad</nz-form-label>
+                    <nz-form-control [nzSpan]="4" nzOffset="2" [nzErrorTip]="userErrorTpl" nzHasFeedback>
+                        <nz-input-number [nzMin]="1" [nzMax]="500" [nzStep]="1"
+                            formControlName="amount" id="amount">
+                        </nz-input-number>
+                        <ng-template #userErrorTpl let-control>
+                            <ng-container *ngIf="control.hasError('required')">
+                                Este campo es requerido!
+                            </ng-container>
+                          </ng-template>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+    
+        <div nz-row [nzGutter]="24">
+            <div nz-col [nzSpan]="10">
+                <nz-form-item>
+                    <nz-form-label [nzSpan]="5" nzFor="color" nzRequired>Color</nz-form-label>
+                    <nz-form-control [nzSpan]="14" nzOffset="2" [nzErrorTip]="userErrorTpl" nzHasFeedback>
+                        <nz-select type="color" id="color" formControlName="color">
+                            <nz-option [nzLabel]="'Amarillo'" [nzValue]="'yellow'"></nz-option>
+                            <nz-option [nzLabel]="'Azul'" [nzValue]="'blue'"></nz-option>
+                            <nz-option [nzLabel]="'Rojo'" [nzValue]="'red'"></nz-option>
+                            <nz-option [nzLabel]="'Rosado'" [nzValue]="'pink'"></nz-option>
+                            <nz-option [nzLabel]="'Verde'" [nzValue]="'green'"></nz-option>
+                            <nz-option [nzLabel]="'Blanco'" [nzValue]="'white'"></nz-option>
+                            <nz-option [nzLabel]="'Negro'" [nzValue]="'black'"></nz-option>
+                        </nz-select>
+                        <ng-template #userErrorTpl let-control>
+                            <ng-container *ngIf="control.hasError('required')">
+                                Este campo es requerido!
+                            </ng-container>
+                          </ng-template>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+    
+            <div nz-col [nzSpan]="10" >
+                <nz-form-item>
+                    <nz-form-label [nzSpan]="8" nzFor="size" nzRequired>Talla</nz-form-label>
+                    <nz-form-control  [nzSpan]="18" nzOffset="5" [nzErrorTip]="userErrorTpl" nzHasFeedback>
+                        <input nz-input formControlName="size" id="size" />
+                        <ng-template #userErrorTpl let-control>
+                            <ng-container *ngIf="control.hasError('required')">
+                                Este campo es requerido!
+                            </ng-container>
+                          </ng-template>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+    
+    
+    
+        <div nz-row [nzGutter]="24">
+            <div nz-col [nzSpan]="10">
+                <nz-form-item>
+                    <nz-form-label [nzSpan]="5" nzFor="mark" nzRequired>Marca</nz-form-label>
+                    <nz-form-control [nzSpan]="14" nzOffset="2"  [nzErrorTip]="userErrorTpl" nzHasFeedback>
+                        <input nz-input formControlName="mark" id="mark" />
+                        <ng-template #userErrorTpl let-control>
+                            <ng-container *ngIf="control.hasError('required')">
+                                Este campo es requerido!
+                            </ng-container>
+                          </ng-template>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+    
+            <div nz-col [nzSpan]="10" >
+                <nz-form-item>
+                    <nz-form-label [nzSpan]="8" nzFor="featured" nzRequired>Destacado</nz-form-label>
+                    <nz-form-control [nzSpan]="18" nzOffset="5" [nzErrorTip]="userErrorTpl" nzHasFeedback>
+                        <nz-select type="featured" formControlName="featured" id="featured">
+                            <nz-option [nzLabel]="'Si'" [nzValue]="'true'"></nz-option>
+                            <nz-option [nzLabel]="'No'" [nzValue]="'false'"></nz-option>
+                        </nz-select>
+                        <ng-template #userErrorTpl let-control>
+                            <ng-container *ngIf="control.hasError('required')">
+                                Este campo es requerido!
+                            </ng-container>
+                          </ng-template>
+                    </nz-form-control>
+                </nz-form-item>
+    
+            </div>
+        </div>
+    
+        <div nz-row [nzGutter]="24">
+            <div nz-col [nzSpan]="10">
+                <nz-form-item>
+                    <nz-form-label [nzSpan]="5" nzFor="newest" nzRequired>Nuevo</nz-form-label>
+                    <nz-form-control [nzSpan]="14" nzOffset="2" [nzErrorTip]="userErrorTpl" nzHasFeedback>
+                        <nz-select type="newest" formControlName="newest" id="newest">
+                            <nz-option [nzLabel]="'Si'" [nzValue]="'true'"></nz-option>
+                            <nz-option [nzLabel]="'No'" [nzValue]="'false'"></nz-option>
+                        </nz-select>
+                        <ng-template #userErrorTpl let-control>
+                            <ng-container *ngIf="control.hasError('required')">
+                                Este campo es requerido!
+                            </ng-container>
+                          </ng-template>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+    
+        <div nz-row [nzGutter]="24">
+            <div nz-col [nzSpan]="10">
+                <nz-form-item>
+                    <nz-form-label nzFor="description" nzRequired>Descripción</nz-form-label>
+                    <nz-form-control [nzSpan]="14" nzOffset="1" [nzErrorTip]="userErrorTpl" nzHasFeedback>
+                        <nz-textarea-count [nzMaxCharacterCount]="100">
+                            <textarea rows="4" formControlName="description" id="description" nz-input></textarea>
+                        </nz-textarea-count>
+                        <ng-template #userErrorTpl let-control>
+                            <ng-container *ngIf="control.hasError('required')">
+                                Este campo es requerido!
+                            </ng-container>
+                          </ng-template>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>       
+    
+        <div nz-row [nzGutter]="24" nzJustify="end">
+            <div nz-col>
+                <nz-form-item nz-row class="submit">
+                    <nz-form-control>
+                        <button nz-button nzType="primary" [disabled]="!validateForm.valid">Enviar</button>                    
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>    
+    </form>
+    
+
+</div>

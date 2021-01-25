@@ -1,0 +1,23 @@
+export interface Product {
+    id?: number,
+    url?: string,
+    type: string,
+    category: string,
+    subCategory: string,
+    name: string,
+    description: string,
+    price: number,    
+    subImage1?: File,
+    subImage2?: File,
+    subImage3?: File,
+    rate?: number,
+    amount?: number,    
+    color?: string,
+    size?: string,
+    mark?: string,
+    userid?: number,
+    orders?: number,
+    featured?: number,
+    newest?: number,
+    fk_user_product?: number
+}

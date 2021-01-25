@@ -1,0 +1,33 @@
+.login-form {
+    max-width: 300px;
+  }
+
+  .login-form-margin {
+    margin-bottom: 16px;
+  }
+
+  .login-form-forgot {
+    float: right;
+  }
+
+  .login-form-button {
+    width: 100%;
+  }
+
+  // Section image in paralax login
+  .parallax {    
+    background-image: url('../../../../assets/images/login/blueparallax.png');
+  }
+
+  .full-banner {
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 190px;
+    padding-bottom: 190px;
+    background-position: 50%;
+  }
+  
+  .full-banner.parallax {
+    background-attachment: fixed;
+  }

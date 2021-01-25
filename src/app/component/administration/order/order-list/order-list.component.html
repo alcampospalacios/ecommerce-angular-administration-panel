@@ -1,0 +1,28 @@
+<section *ngIf="orders">
+    <nz-list nzGrid>
+      <div nz-row>
+        <div nz-col [nzXXl]="24" [nzXl]="24" [nzLg]="24" [nzMd]="24" [nzSm]="24" [nzXs]="24" *ngFor="let item of orders">
+          <nz-list-item>
+            <nz-card [nzTitle]="'ORDEN ' + item.id">
+              <pre>{{item.resume}}</pre>
+              
+              <span><strong>Cantidad:</strong> {{item.amount}}</span><br/>
+              <span><strong>Total a Pagar:</strong> {{item.totalPrice}}</span><br/>
+              <span><strong>Estado</strong> {{item.status}}</span><br/>
+
+              <nz-divider></nz-divider>
+
+              <h3>Datos de Contacto</h3>
+              <span><strong>Nombre:</strong> {{item.nameReceiver}}</span><br/>
+              <span><strong>Apellido:</strong> {{item.lastnameReceiver}}</span><br/>
+              <span><strong>CI:</strong> {{item.ci}}</span><br/>
+              <span><strong>Dirección:</strong> {{item.address}}</span><br/>
+              <span><strong>Teléfono Móvil:</strong> {{item.movilPhone}}</span><br/>
+              <span><strong>Otro Teléfono</strong> {{item.anotherPhone}}</span><br/>
+              <span>Fecha: {{item.date | date}}</span>
+            </nz-card>
+          </nz-list-item>
+        </div>
+      </div>
+    </nz-list>
+</section>

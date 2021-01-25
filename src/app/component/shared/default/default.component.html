@@ -1,0 +1,12 @@
+<section class="full-banner full-banner.parallax">
+  <div nz-row nzJustify="center" nzAlign="middle">
+    <nz-empty nz-col nzNotFoundImage="simple"
+    [nzNotFoundContent]="contentTpl">
+    <ng-template #contentTpl>
+      <span> El recurso solicitado no existe, ir al <a routerLink='/home'>Inicio</a> </span>
+    </ng-template>
+  </nz-empty>
+
+  </div>
+  
+</section>
